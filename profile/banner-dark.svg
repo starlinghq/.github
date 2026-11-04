@@ -28,8 +28,8 @@
   <circle cx="48" cy="45" r="3.2" fill="#ffffff"/>
 </g>
 <text x="194" y="142" class="t" font-size="76" font-weight="700" fill="#e6edf3" letter-spacing="-1">Starling</text>
-<text x="74" y="222" class="t" font-size="27" fill="#e6edf3">Real AI models, native to .NET.</text>
-<text x="74" y="258" class="t" font-size="27" fill="#8b949e">Verified against the reference.</text>
+<text x="74" y="222" class="t" font-size="27" fill="#e6edf3">Local AI in .NET.</text>
+<text x="74" y="258" class="t" font-size="27" fill="#8b949e">No Python sidecar. No API key.</text>
 <text x="74" y="316" class="t" font-size="18" fill="#79c0ff">embeddings · entities · image &amp; video · chat · tokenizers</text>
 <text x="74" y="352" class="t" font-size="18" fill="#7ee787">$ dotnet add package Starlings.Models.* <tspan class="cursor">▋</tspan></text>
 <rect y="394" width="1280" height="6" fill="#22a884"/>
