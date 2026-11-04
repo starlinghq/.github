@@ -1,7 +1,7 @@
 <a href="https://github.com/starlinghq/starling">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/starlinghq/.github/main/profile/banner-dark.svg">
-    <img alt="Starling: real AI models, native to .NET. Verified against the reference." src="https://raw.githubusercontent.com/starlinghq/.github/main/profile/banner-light.svg" width="100%">
+    <img alt="Starling: local AI in .NET, with no Python sidecar and no API key." src="https://raw.githubusercontent.com/starlinghq/.github/main/profile/banner-light.svg" width="100%">
   </picture>
 </a>
 
@@ -14,17 +14,19 @@
 </p>
 
 <p align="center">
-  <a href="https://www.nuget.org/packages?q=Starlings.Models"><img alt="Starlings.Models on NuGet" src="https://img.shields.io/nuget/vpre/Starlings.Models.E5.Extensions.AI?label=Starlings.Models&color=22a884"></a>
-  <a href="https://www.nuget.org/packages/Starlings.Tokenizers"><img alt="Starlings.Tokenizers on NuGet" src="https://img.shields.io/nuget/vpre/Starlings.Tokenizers?label=Starlings.Tokenizers&color=22a884"></a>
+  <a href="https://www.nuget.org/packages?q=Starlings.Models"><img alt="Starlings.Models on NuGet" src="https://img.shields.io/nuget/v/Starlings.Models.E5.Extensions.AI?label=Starlings.Models&color=22a884"></a>
+  <a href="https://www.nuget.org/packages/Starlings.Tokenizers"><img alt="Starlings.Tokenizers on NuGet" src="https://img.shields.io/nuget/v/Starlings.Tokenizers?label=Starlings.Tokenizers&color=22a884"></a>
   <img alt=".NET 10" src="https://img.shields.io/badge/.NET-10-512BD4">
   <img alt="License: MIT OR Apache-2.0" src="https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue">
 </p>
 
 ---
 
-### Open models as ordinary NuGet packages
+### Local AI in .NET, with no Python sidecar and no API key
 
-**Starling** runs real AI models inside your .NET app. You get embeddings, entity extraction, image and video search, and chat, with no Python sidecar and no cloud API. Each model is pinned to an exact upstream commit, verified by SHA-256, and checked against the original PyTorch/Python implementation before release. The evidence is published next to the code.
+⭐ If this is useful, [star Starling](https://github.com/starlinghq/starling) so other .NET developers can find it.
+
+**Starling** runs real AI models inside your .NET app: embeddings, entity extraction, image and video search, and chat. It plugs into `Microsoft.Extensions.AI`, so moving code off a hosted provider starts with one line at the call site. Each model is pinned to an exact upstream commit, verified by SHA-256, and checked against the original PyTorch/Python implementation before release. The evidence is published next to the code.
 
 ```csharp
 using var embedder = E5EmbeddingGenerator.Create(await E5ModelAssets.DownloadAsync());
@@ -37,13 +39,13 @@ var vector = await embedder.GenerateVectorAsync("query: Which river runs through
     <td width="50%" valign="top">
       <h3><a href="https://github.com/starlinghq/starling">starling</a></h3>
       <p>Local AI models for .NET on ONNX Runtime (CPU/CUDA), exposed through <code>Microsoft.Extensions.AI</code>: <code>IEmbeddingGenerator</code> and <code>IChatClient</code>. If your code already talks to a hosted provider, switching to a local model is a one-line change.</p>
-      <pre lang="sh">dotnet add package Starlings.Models.E5.Extensions.AI --prerelease</pre>
+      <pre lang="sh">dotnet add package Starlings.Models.E5.Extensions.AI</pre>
       <p><a href="https://github.com/starlinghq/starling#quickstart">Quickstart →</a></p>
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/starlinghq/tokenizers">tokenizers</a></h3>
       <p>Hugging Face <code>tokenizer.json</code> in pure .NET. Token ids, offsets and decoded text match <code>huggingface/tokenizers</code> case by case. No native code, no dependencies, and it fails loudly on anything it doesn't implement.</p>
-      <pre lang="sh">dotnet add package Starlings.Tokenizers --prerelease</pre>
+      <pre lang="sh">dotnet add package Starlings.Tokenizers</pre>
       <p><a href="https://github.com/starlinghq/tokenizers#supported-tokenizers">Supported tokenizers →</a></p>
     </td>
   </tr>
@@ -57,6 +59,8 @@ var vector = await embedder.GenerateVectorAsync("query: Which river runs through
 | 🖼️ | [EmbeddingGemma 2](https://huggingface.co/google/embeddinggemma-2) | Text, image and video embeddings in one space | `Starlings.Models.EmbeddingGemma2` |
 | 🏷️ | [GLiNER2](https://huggingface.co/fastino/gliner2-base-v1) | Zero-shot entity extraction with any labels | `Starlings.Models.Gliner2` |
 | 💬 | [Qwen3.5-0.8B](https://huggingface.co/Qwen/Qwen3.5-0.8B) | Chat and text generation via `IChatClient` | `Starlings.Models.Qwen35` |
+
+Experimental on NuGet: [Kev](https://huggingface.co/jaredpalmer/kev-0.8b) decision models, BERT-family embedders and rerankers, Qwen chat models, LFM3 and e5 in the browser. Experimental in the repository: Whisper speech-to-text.
 
 The [model catalog](https://github.com/starlinghq/starling/blob/main/docs/catalog/README.md) links every release gate to its evidence: provenance, numerical parity, task quality, leak soak, benchmarks and clean install.
 
@@ -88,4 +92,4 @@ then use the Starlings.* NuGet packages to <what you want to build>.
 - 🧪 [Request a model](https://github.com/starlinghq/starling/issues/new/choose) or [a tokenizer](https://github.com/starlinghq/tokenizers/issues/new?template=tokenizer-request.yml)
 - 🤖 Add a model with your agent using the [starling-add-model skill](https://github.com/starlinghq/starling/blob/main/skills/starling-add-model/SKILL.md)
 
-<sub>Everything here is in preview. Packages are published as prereleases on nuget.org, and APIs may change between minor versions. Code is dual-licensed MIT OR Apache-2.0. Model weights keep their own terms.</sub>
+<sub>Packages are on nuget.org at 0.x. A public API member gets one minor version of <code>[Obsolete]</code> notice before it changes or goes, and each package README lists the maturity of its models. Code is dual-licensed MIT OR Apache-2.0. Model weights keep their own terms.</sub>
