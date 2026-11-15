@@ -44,9 +44,9 @@ var vector = await embedder.GenerateVectorAsync("query: Which river runs through
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/starlinghq/tokenizers">tokenizers</a></h3>
-      <p>Hugging Face <code>tokenizer.json</code> in pure .NET. Token ids, offsets and decoded text match <code>huggingface/tokenizers</code> case by case. No native code, no dependencies, and it fails loudly on anything it doesn't implement.</p>
+      <p>Hugging Face <code>tokenizer.json</code> in pure .NET. Token ids, offsets and decoded text match <code>huggingface/tokenizers</code> case by case. No native code, no dependencies, and it fails loudly on anything it doesn't implement. It runs under Native AOT, where every pinned tokenizer loads faster than in Python's <code>tokenizers</code>: the 17 MB e5 file in 87 ms against 325 ms.</p>
       <pre lang="sh">dotnet add package Starlings.Tokenizers</pre>
-      <p><a href="https://github.com/starlinghq/tokenizers#supported-tokenizers">Supported tokenizers →</a></p>
+      <p><a href="https://github.com/starlinghq/tokenizers#supported-tokenizers">Supported tokenizers →</a> · <a href="https://github.com/starlinghq/tokenizers#performance">Performance →</a></p>
     </td>
   </tr>
 </table>
